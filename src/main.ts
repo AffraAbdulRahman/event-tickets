@@ -9,3 +9,5 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(HttpClientModule) // ✅ This is critical
   ]
 });
+
+// test
