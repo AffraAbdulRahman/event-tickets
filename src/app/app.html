@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="header">
+    <img [src]="imageUrl" alt="CMRL Logo" class="cmrl-logo" />
+    <h2>Event Ticket Generator</h2>
+  </div>
+
+  <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+    <label for="origin">From Station</label>
+    <select id="origin" formControlName="origin" (change)="calculateFare()">
+      <option value="" disabled selected>Select Origin</option>
+      <option *ngFor="let station of stations" [value]="station.code">
+        {{ station.name }}
+      </option>
+    </select>
+    <div *ngIf="ticketForm.get('origin')?.invalid && ticketForm.get('origin')?.touched" class="error-message">
+      Origin station is required.
+    </div>
+
+    <label for="destination">To Station</label>
+    <select id="destination" formControlName="destination" (change)="calculateFare()">
+      <option value="" disabled selected>Select Destination</option>
+      <option *ngFor="let station of stations" [value]="station.code">
+        {{ station.name }}
+      </option>
+    </select>
+    <div *ngIf="ticketForm.get('destination')?.invalid && ticketForm.get('destination')?.touched" class="error-message">
+      Destination station is required.
+    </div>
+    <div *ngIf="ticketForm.get('origin')?.value && ticketForm.get('destination')?.value && ticketForm.get('origin')?.value === ticketForm.get('destination')?.value" class="error-message">
+      Origin and Destination cannot be the same.
+    </div>
+
+    <label for="mobileNumber">Mobile Number</label>
+    <input
+      type="text"
+      id="mobileNumber"
+      maxlength="10"
+      formControlName="mobileNumber"
+      placeholder="Enter your mobile number"
+    />
+    <div *ngIf="ticketForm.get('mobileNumber')?.invalid && ticketForm.get('mobileNumber')?.touched" class="error-message">
+      <span *ngIf="ticketForm.get('mobileNumber')?.errors?.['required']">Mobile number is required.</span>
+      <span *ngIf="ticketForm.get('mobileNumber')?.errors?.['pattern']">Please enter a valid 10-digit mobile number.</span>
+    </div>
+
+    <label for="eventDate">Event Date</label>
+    <input
+      type="date"
+      id="eventDate"
+      formControlName="eventDate"
+      [min]="minDate"
+    />
+    <div *ngIf="ticketForm.get('eventDate')?.invalid && ticketForm.get('eventDate')?.touched" class="error-message">
+      Event date is required.
+    </div>
+
+    <label for="numTickets">Number of Tickets</label>
+    <div class="ticket-counter">
+      <button type="button" (click)="decrement()">−</button>
+      <input
+        type="number"
+        id="numTickets"
+        formControlName="numTickets"
+        min="1"
+        max="2000"
+        (change)="calculateFare()"
+      />
+      <button type="button" (click)="increment()">+</button>
+    </div>
+    <div *ngIf="ticketForm.get('numTickets')?.invalid && ticketForm.get('numTickets')?.touched" class="error-message">
+      <span *ngIf="ticketForm.get('numTickets')?.errors?.['min']">Minimum 1 ticket required.</span>
+      <span *ngIf="ticketForm.get('numTickets')?.errors?.['max']">Maximum 6 tickets allowed.</span>
+    </div>
+
+    <p class="fare">Total Fare: ₹{{ fare.toFixed(2) }}</p>
+
+    <button
+      type="submit"
+      [disabled]="ticketForm.invalid || ticketForm.get('origin')?.value === ticketForm.get('destination')?.value"
+    >
+      Make Payment
+    </button>
+  </form>
+
+  <div *ngIf="showQrCode && qrCodeData" class="qr-code-display">
+    <h3>Scan QR Code for Ticket</h3>
+    <img [src]="'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + qrCodeData" alt="QR Code" />
+    <p>Please scan this QR code to get your ticket details.</p>
+  </div>
+</div>

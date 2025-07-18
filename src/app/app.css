@@ -1,0 +1,199 @@
+.container {
+  max-width: 450px; /* Adjusted max-width for better spacing */
+  margin: auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px #ccc;
+}
+
+/* New: Styles for the header div to align logo and title */
+.header {
+  display: flex; /* Use flexbox to put items side-by-side */
+  align-items: center; /* Vertically align items in the middle */
+  justify-content: center; /* Horizontally center the content */
+  margin-bottom: 25px; /* Space below the header */
+}
+
+/* Styling for the logo image */
+.cmrl-logo {
+  height: 50px; /* Set a specific height for the logo */
+  margin-right: 15px; /* Add some space between the logo and the text */
+  /* You can add max-width: 100%; height: auto; for responsiveness */
+}
+
+/* Styling for the main title */
+h2 {
+  text-align: center; /* Center the text */
+  margin-bottom: 0; /* Remove default bottom margin to align better with logo */
+  color: #333;
+}
+
+/* ... rest of your existing CSS ... */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e0f2f7; /* Light blue background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 480px;
+  width: 90%;
+  margin: auto;
+  background: #ffffff; /* White container background */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.cmrl-logo {
+  height: 50px; /* Adjust size as needed */
+  margin-right: 15px;
+}
+
+h2 {
+  color: #0056b3; /* Darker blue for heading */
+  margin: 0;
+  font-size: 24px;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #0056b3; /* Dark blue for labels */
+}
+
+input,
+select {
+  width: calc(100% - 20px); /* Account for padding */
+  padding: 10px;
+  border: 1px solid #a7d9f2; /* Light blue border */
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8fcff; /* Very light blue input background */
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.ticket-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ticket-counter button {
+  background-color: #007bff; /* Blue button */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ticket-counter button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.ticket-counter input {
+  width: 60px;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.ticket-counter input::-webkit-outer-spin-button,
+.ticket-counter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fare {
+  font-weight: bold;
+  margin-top: 25px;
+  color: #28a745;
+  font-size: 24px;
+  text-align: center;
+  padding: 12px;
+  background-color: #e6ffe6;
+  border-radius: 8px;
+  border: 1px solid #28a745;
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #007bff; /* Blue submit button */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc3545; /* Red for error messages */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.qr-code-display {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f0f8ff; /* Light blue background for QR code section */
+  border-radius: 10px;
+  border: 1px solid #a7d9f2;
+}
+
+.qr-code-display h3 {
+  color: #0056b3;
+  margin-bottom: 15px;
+}
+
+.qr-code-display img {
+  border: 5px solid #007bff;
+  border-radius: 5px;
+}
+
+.qr-code-display p {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #555;
+}
